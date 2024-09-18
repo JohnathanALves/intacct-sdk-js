@@ -21,7 +21,6 @@ import IaXmlWriter from "../../Xml/IaXmlWriter";
 import AbstractPurchasingTransactionLine from "./AbstractPurchasingTransactionLine";
 
 export default class PurchasingTransactionLineUpdate extends AbstractPurchasingTransactionLine {
-
     public lineNo: number;
 
     public writeXml(xml: IaXmlWriter): void {
@@ -51,6 +50,7 @@ export default class PurchasingTransactionLineUpdate extends AbstractPurchasingT
 
         xml.writeCustomFieldsExplicit(this.customFields);
 
+        xml.writeElement("sourcelinekey", this.sourceLineKey);
         xml.writeElement("projectid", this.projectId);
         xml.writeElement("taskid", this.taskId);
         xml.writeElement("costtypeid", this.costTypeId);
