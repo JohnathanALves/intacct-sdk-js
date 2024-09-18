@@ -21,8 +21,9 @@ import IaXmlWriter from "../../Xml/IaXmlWriter";
 import IXmlObject from "../../Xml/IXmlObject";
 import AbstractTransactionItemDetail from "../InventoryControl/AbstractTransactionItemDetail";
 
-export default abstract class AbstractPurchasingTransactionLine implements IXmlObject {
-
+export default abstract class AbstractPurchasingTransactionLine
+    implements IXmlObject
+{
     public itemId: string;
     public itemDescription: string;
     public taxable: boolean;
@@ -48,6 +49,7 @@ export default abstract class AbstractPurchasingTransactionLine implements IXmlO
     public costTypeId: string;
     public taskId: string;
     public needByDate: Date;
+    public sourceLineKey: string;
 
     public abstract writeXml(xml: IaXmlWriter): void;
 }
