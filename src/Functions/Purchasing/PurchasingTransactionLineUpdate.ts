@@ -34,6 +34,9 @@ export default class PurchasingTransactionLineUpdate extends AbstractPurchasingT
         xml.writeElement("quantity", this.quantity);
         xml.writeElement("unit", this.unit);
         xml.writeElement("price", this.price);
+        if (this.sourceLineKey != null) {
+            xml.writeElement("sourcelinekey", this.sourceLineKey);
+        }
         xml.writeElement("locationid", this.locationId);
         xml.writeElement("departmentid", this.departmentId);
         xml.writeElement("memo", this.memo);
@@ -50,7 +53,6 @@ export default class PurchasingTransactionLineUpdate extends AbstractPurchasingT
 
         xml.writeCustomFieldsExplicit(this.customFields);
 
-        xml.writeElement("sourcelinekey", this.sourceLineKey);
         xml.writeElement("projectid", this.projectId);
         xml.writeElement("taskid", this.taskId);
         xml.writeElement("costtypeid", this.costTypeId);
