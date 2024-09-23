@@ -75,6 +75,11 @@ describe("PurchasingTransactionLineUpdate", () => {
         <classid>243609</classid>
         <contractid>9062</contractid>
         <billable>true</billable>
+        <needbydate>
+            <year>2015</year>
+            <month>06</month>
+            <day>30</day>
+        </needbydate>
     </updatepotransitem>
 </test>`;
 
@@ -101,6 +106,7 @@ describe("PurchasingTransactionLineUpdate", () => {
         record.customFields = [
             [ "customfield1", "customvalue1" ],
         ];
+        record.needByDate = new Date("6/30/2015");
 
         const detail1 = new TransactionItemDetail();
         detail1.quantity = 52;

@@ -36,12 +36,18 @@ describe("PurchasingTransactionLineCreate", () => {
     <potransitem>
         <itemid>26323</itemid>
         <quantity>2340</quantity>
+        <needbydate>
+            <year>2015</year>
+            <month>06</month>
+            <day>30</day>
+        </needbydate>
     </potransitem>
 </test>`;
 
         const record = new PurchasingTransactionLineCreate();
         record.itemId = "26323";
         record.quantity = 2340;
+        record.needByDate = new Date("6/30/2015");
 
         XmlObjectTestHelper.CompareXml(expected, record);
     });
@@ -81,6 +87,11 @@ describe("PurchasingTransactionLineCreate", () => {
         <classid>243609</classid>
         <contractid>9062</contractid>
         <billable>true</billable>
+        <needbydate>
+            <year>2015</year>
+            <month>06</month>
+            <day>30</day>
+        </needbydate>
     </potransitem>
 </test>`;
 
@@ -108,6 +119,7 @@ describe("PurchasingTransactionLineCreate", () => {
         record.customFields = [
             [ "customfield1", "customvalue1" ],
         ];
+        record.needByDate = new Date("6/30/2015");
 
         const detail1 = new TransactionItemDetail();
         detail1.quantity = 52;
