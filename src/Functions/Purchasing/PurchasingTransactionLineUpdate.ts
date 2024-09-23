@@ -63,6 +63,12 @@ export default class PurchasingTransactionLineUpdate extends AbstractPurchasingT
         xml.writeElement("contractid", this.contractId);
         xml.writeElement("billable", this.billable);
 
+        if (this.needByDate != null) {
+            xml.writeStartElement("needbydate");
+            xml.writeDateSplitElements(this.needByDate, true);
+            xml.writeEndElement(); // needbydate
+        }
+
         xml.writeEndElement(); // updatepotransitem
     }
 }

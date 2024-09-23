@@ -58,6 +58,11 @@ describe("PurchasingTransactionCreate", () => {
                 <potransitem>
                     <itemid>02354032</itemid>
                     <quantity>1200</quantity>
+                    <needbydate>
+                        <year>2015</year>
+                        <month>06</month>
+                        <day>30</day>
+                    </needbydate>
                 </potransitem>
             </potransitems>
         </create_potransaction>
@@ -74,6 +79,7 @@ describe("PurchasingTransactionCreate", () => {
         const line1 = new PurchasingTransactionLineCreate();
         line1.itemId = "02354032";
         line1.quantity = 1200;
+        line1.needByDate = new Date("6/30/2015");
 
         record.lines = [
             line1,
@@ -136,6 +142,11 @@ describe("PurchasingTransactionCreate", () => {
                 <potransitem>
                     <itemid>2390552</itemid>
                     <quantity>223</quantity>
+                    <needbydate>
+                        <year>2015</year>
+                        <month>06</month>
+                        <day>30</day>
+                    </needbydate>
                 </potransitem>
             </potransitems>
             <subtotals>
@@ -177,6 +188,7 @@ describe("PurchasingTransactionCreate", () => {
         const line1 = new PurchasingTransactionLineCreate();
         line1.itemId = "2390552";
         line1.quantity = 223;
+        line1.needByDate = new Date("6/30/2015");
 
         record.lines = [
             line1,
