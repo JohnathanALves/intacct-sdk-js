@@ -17,7 +17,6 @@
  * permissions and limitations under the License.
  */
 
-import {isArray, isNullOrUndefined} from "util";
 import IntacctException from "../Exceptions/IntacctException";
 import ResponseException from "../Exceptions/ResponseException";
 import AbstractResponse from "./AbstractResponse";
@@ -39,7 +38,7 @@ export default class OnlineResponse extends AbstractResponse {
         super(body);
 
         this._results = [];
-        if (!isNullOrUndefined(this.xml) && !this.xml["response"].hasOwnProperty("operation")) {
+        if (this.xml !== null && this.xml !== undefined && !this.xml["response"].hasOwnProperty("operation")) {
             throw new IntacctException("Response block is missing operation block");
         }
 
@@ -57,7 +56,7 @@ export default class OnlineResponse extends AbstractResponse {
         }
 
         if (this.xml["response"]["operation"].hasOwnProperty("result")) {
-            if (isArray(this.xml["response"]["operation"]["result"])) {
+            if (Array.isArray(this.xml["response"]["operation"]["result"])) {
                 for (const index in this.xml["response"]["operation"]["result"]) {
                     if (this.xml["response"]["operation"]["result"].hasOwnProperty(index)) {
                         this._results.push(new Result(this.xml["response"]["operation"]["result"][index]));

@@ -17,7 +17,6 @@
  * permissions and limitations under the License.
  */
 
-import {isArray} from "util";
 import IntacctException from "../../Exceptions/IntacctException";
 import ResultException from "../../Exceptions/ResultException";
 import ErrorMessage from "./ErrorMessage";
@@ -160,7 +159,7 @@ export default class Result {
                 const data = [];
                 for (const key in result["data"]) {
                     if (key !== "$" && result["data"].hasOwnProperty(key)) {
-                        if (isArray(result["data"][key])) {
+                        if (Array.isArray(result["data"][key])) {
                             for (const child of result["data"][key]) {
                                 data.push(child);
                             }
