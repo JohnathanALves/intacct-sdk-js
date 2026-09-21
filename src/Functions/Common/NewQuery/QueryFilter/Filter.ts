@@ -17,7 +17,6 @@
  * permissions and limitations under the License.
  */
 
-import {isArray} from "util";
 import IaXmlWriter from "../../../../Xml/IaXmlWriter";
 import IFilter from "./IFilter";
 
@@ -268,7 +267,7 @@ export default class Filter implements IFilter {
         }
         xml.writeElement("field", this.fieldName, false);
         if (this.value !== null) {
-            if (isArray(this.value)) {
+            if (Array.isArray(this.value)) {
                 for (const arrayValue of this.value) {
                     xml.writeElement("value", arrayValue, true);
                 }
